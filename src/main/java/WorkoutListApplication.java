@@ -1,4 +1,4 @@
-public class TrainingListApplication {
+public class WorkoutListApplication {
 
     public static void main(String[] args) {
 
@@ -7,5 +7,7 @@ public class TrainingListApplication {
         System.out.println("1. Add workout");
         System.out.println("2. Get all workouts");
         System.out.println("3. Delete workout");
+
+
     }
 }
