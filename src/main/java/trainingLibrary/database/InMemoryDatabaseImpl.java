@@ -1,17 +1,16 @@
 package trainingLibrary.database;
 
-import trainingLibrary.Training;
-import trainingLibrary.database.Database;
+import trainingLibrary.domain.TrainingEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class InMemoryDatabaseImpl implements Database {
     private Long nextId = 1L;
-    private List<Training> trainings = new ArrayList<>();
+    private List<TrainingEntity> trainings = new ArrayList<>();
 
     @Override
-    public void save(Training training) {
+    public void save(TrainingEntity training) {
         training.setId(nextId);
         nextId++;
         trainings.add(training);
@@ -26,7 +25,7 @@ public class InMemoryDatabaseImpl implements Database {
     }
 
     @Override
-    public List<Training> getAllTraining() {
+    public List<TrainingEntity> getAllTraining() {
         return null;
     }
 }

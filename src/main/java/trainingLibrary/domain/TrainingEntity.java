@@ -1,16 +1,20 @@
-package trainingLibrary;
+package trainingLibrary.domain;
 
 import java.util.Objects;
 
-public class Training {
+public class TrainingEntity {
 
     private Long id;
-    private String name;
     private String trainingChoice;
+    private String trainer;
 
-    public Training(String name, String trainingChoice) {
-        this.name = name;
+    public TrainingEntity(String trainingChoice, String trainer) {
+        this.trainer = trainer;
         this.trainingChoice = trainingChoice;
+    }
+
+    public TrainingEntity() {
+
     }
 
     public Long getId() {
@@ -21,14 +25,6 @@ public class Training {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getTrainingChoice() {
         return trainingChoice;
     }
@@ -37,23 +33,31 @@ public class Training {
         this.trainingChoice = trainingChoice;
     }
 
+    public String getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(String trainer) {
+        this.trainer = trainer;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Training training = (Training) o;
-        return Objects.equals(name, training.name) && Objects.equals(trainingChoice, training.trainingChoice);
+        TrainingEntity training = (TrainingEntity) o;
+        return Objects.equals(trainingChoice,training.trainingChoice) && Objects.equals(trainingChoice, training.trainingChoice);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, trainingChoice);
+        return Objects.hash(trainingChoice, trainer);
     }
 
     @Override
     public String toString() {
         return "Training{" +
-                "name='" + name + '\'' +
+                "name='" + trainingChoice + '\'' +
                 ", trainingChoice='" + trainingChoice + '\'' +
                 '}';
     }
