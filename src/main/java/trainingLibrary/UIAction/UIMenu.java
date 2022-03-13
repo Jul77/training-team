@@ -13,7 +13,6 @@ public class UIMenu {
 
     public UIMenu(List<UIAction> uiActions) {
         this.uiActions = uiActions;
-
     }
 
     public void startUI() {
@@ -21,16 +20,16 @@ public class UIMenu {
             try {
                 System.out.println("Please make your choice");
                 for (int i = 0; i < uiActions.size(); i++) {
-                    UIAction uiAction = uiActions.get(i);
+                    var uiAction = uiActions.get(i);
                     System.out.println(i + ". " + uiAction.getActionName());
                 }
                 Scanner scanner = new Scanner(System.in);
                 int userInput = scanner.nextInt();
+
                 uiActions.get(userInput).execute();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
     }
 }

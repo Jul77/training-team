@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArrayListTrainingRepository implements TrainingRepository {
+
     private List<TrainingEntity> database = new ArrayList<>();
     private long idSequence = 0;
 

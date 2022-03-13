@@ -2,6 +2,7 @@ package trainingLibrary.UIAction;
 
 import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.services.AddTrainingService;
+import trainingLibrary.dto.AddTrainingRequest;
 
 import java.util.Scanner;
 
@@ -24,12 +25,18 @@ public class AddTrainingUIAction implements UIAction {
         entity.setTrainingChoice(trainingChoice);
         entity.setTrainer(trainer);
 
-        addTrainingService.add(entity);
+        var request = new AddTrainingRequest();
+        request.setTrainingChoice(trainingChoice);
+        request.setTrainer(trainer);
+
+        var response = addTrainingService.add(request);
+        System.out.println("Received response: " + response);
+
 
     }
 
     @Override
     public String getActionName() {
-        return "Add ";
+        return "Add Training";
     }
 }
