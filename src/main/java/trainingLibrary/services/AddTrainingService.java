@@ -1,6 +1,5 @@
 package trainingLibrary.services;
 
-import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.repository.TrainingRepository;
 import trainingLibrary.validation.ValidationService;
 import trainingLibrary.dto.AddTrainingRequest;
@@ -17,7 +16,8 @@ public class AddTrainingService {
 
     public AddTrainingResponse add(AddTrainingRequest request) {
         System.out.println("Received request: " + request);
-        var validationResult = validationService.validate(request);
+        var entity = convert(request);
+        var validationResult = validationService.validation(request);
         if (!validationResult.isEmpty()) {
             System.out.println("Validation failed, errors: " + validationResult);
             var response = new AddTrainingResponse();
@@ -25,21 +25,20 @@ public class AddTrainingService {
             return response;
 
         }
-        var entity = convert(request);
-        var createdEntity = repository.save(entity);
-        System.out.println("Successfully saved " + createdEntity);
+        var createdRequest = repository.save(request);
+        System.out.println("Successfully saved " + createdRequest);
         var response = new AddTrainingResponse();
-        response.setCreateTrainingId(createdEntity.getId());
+        response.getCreateTrainingId(createdRequest.getId());
         System.out.println("Sending response " + response);
         return response;
 
     }
 
-    private TrainingEntity convert(AddTrainingRequest request) {
-        TrainingEntity entity = new TrainingEntity();
-        entity.setTrainingChoice(request.getTrainingChoice());
-        entity.setTrainer(request.getTrainer());
-        return entity;
+    private AddTrainingRequest convert(AddTrainingRequest request) {
+        AddTrainingRequest addTrainingRequest = new AddTrainingRequest();
+        addTrainingRequest.setTrainingChoice(request.getTrainingChoice());
+        addTrainingRequest.setTrainer(request.getTrainer());
+        return addTrainingRequest;
 
     }
 }

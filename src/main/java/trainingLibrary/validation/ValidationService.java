@@ -1,6 +1,5 @@
 package trainingLibrary.validation;
 
-import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.dto.AddTrainingRequest;
 
 import java.util.ArrayList;
@@ -16,15 +15,15 @@ public class ValidationService {
         this.validationRules = validationRules;
     }
 
-    public List<CoreError> validate(AddTrainingRequest request) {
+    public List<CoreError> validation(AddTrainingRequest trainingEntity) {
         List<CoreError> errors = new ArrayList<>();
-        if (request == null) {
+        if (trainingEntity == null) {
             errors.add(new CoreError("Training must not be null"));
             return errors;
 
         }
         return validationRules.stream()
-                .map(rule -> mapError(rule, request))
+                .map(rule -> mapError(rule, trainingEntity))
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
     }
