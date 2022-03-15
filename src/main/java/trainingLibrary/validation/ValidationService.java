@@ -1,6 +1,6 @@
 package trainingLibrary.validation;
 
-import trainingLibrary.domain.TrainingEntity;
+import trainingLibrary.dto.AddTrainingRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class ValidationService {
         this.validationRules = validationRules;
     }
 
-    public List<CoreError> validation(TrainingEntity trainingEntity) {
+    public List<CoreError> validation(AddTrainingRequest trainingEntity) {
         List<CoreError> errors = new ArrayList<>();
         if (trainingEntity == null) {
             errors.add(new CoreError("Training must not be null"));
@@ -28,9 +28,9 @@ public class ValidationService {
                 .collect(Collectors.toList());
     }
 
-    private CoreError mapError(ValidationRule rule, TrainingEntity entity) {
+    private CoreError mapError(ValidationRule rule, AddTrainingRequest request) {
         try {
-            rule.validate(entity);
+            rule.validate(request);
         } catch (ValidationException e) {
             return new CoreError(e.getMessage());
         }

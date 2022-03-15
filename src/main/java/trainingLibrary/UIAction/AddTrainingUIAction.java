@@ -1,6 +1,5 @@
 package trainingLibrary.UIAction;
 
-import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.services.AddTrainingService;
 import trainingLibrary.dto.AddTrainingRequest;
 
@@ -20,10 +19,6 @@ public class AddTrainingUIAction implements UIAction {
         String trainingChoice = scanner.nextLine();
         System.out.println("Please enter training trainer: ");
         String trainer = scanner.nextLine();
-
-        TrainingEntity entity = new TrainingEntity();
-        entity.setTrainingChoice(trainingChoice);
-        entity.setTrainer(trainer);
 
         var request = new AddTrainingRequest();
         request.setTrainingChoice(trainingChoice);

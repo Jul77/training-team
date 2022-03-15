@@ -1,6 +1,6 @@
 package trainingLibrary.services;
 
-import trainingLibrary.domain.TrainingEntity;
+import trainingLibrary.dto.AddTrainingRequest;
 import trainingLibrary.repository.TrainingRepository;
 
 import java.util.List;
@@ -12,7 +12,7 @@ public class FindAllTrainingService {
         this.repository = repository;
     }
 
-    public List<TrainingEntity> findAll() {
+    public List<AddTrainingRequest> findAll() {
         return repository.findAll();
     }
 }
