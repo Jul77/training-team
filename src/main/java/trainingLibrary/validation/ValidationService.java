@@ -15,15 +15,15 @@ public class ValidationService {
         this.validationRules = validationRules;
     }
 
-    public List<CoreError> validation(AddTrainingRequest trainingEntity) {
+    public List<CoreError> validation(AddTrainingRequest request) {
         List<CoreError> errors = new ArrayList<>();
-        if (trainingEntity == null) {
+        if (request == null) {
             errors.add(new CoreError("Training must not be null"));
             return errors;
 
         }
         return validationRules.stream()
-                .map(rule -> mapError(rule, trainingEntity))
+                .map(rule -> mapError(rule, request))
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
     }
