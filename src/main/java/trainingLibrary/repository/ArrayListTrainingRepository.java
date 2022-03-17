@@ -8,7 +8,7 @@ import java.util.List;
 public class ArrayListTrainingRepository implements TrainingRepository {
 
     private List<TrainingEntity> database = new ArrayList<>();
-    private long idSequence = 0;
+    private int idSequence = 0;
 
     @Override
     public TrainingEntity save(TrainingEntity trainingEntity) {

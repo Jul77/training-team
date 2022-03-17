@@ -29,7 +29,7 @@ public class AddTrainingService {
         var createdEntity = repository.save(entity);
         System.out.println("Successfully saved " + createdEntity);
         var response = new AddTrainingResponse();
-        response.getCreateTrainingId(createdEntity.getId());
+        response.setCreateTrainingId(createdEntity.getId());
         System.out.println("Sending response " + response);
         return response;
 

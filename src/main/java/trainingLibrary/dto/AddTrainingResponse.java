@@ -7,14 +7,14 @@ import java.util.Objects;
 
 public class AddTrainingResponse {
 
-    private Long createTrainingId;
+    private Integer createTrainingId;
     private List<CoreError> errors;
 
-    public Long getCreateTrainingId(Long id) {
+    public Integer getCreateTrainingId(Integer id) {
         return createTrainingId;
     }
 
-    public void setCreateTrainingId(Long createTrainingId) {
+    public void setCreateTrainingId(Integer createTrainingId) {
         this.createTrainingId = createTrainingId;
     }
 
@@ -25,6 +25,8 @@ public class AddTrainingResponse {
     public void setErrors(List<CoreError> errors) {
         this.errors = errors;
     }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,7 +43,7 @@ public class AddTrainingResponse {
     @Override
     public String toString() {
         return "AddTrainingResponse{" +
-                "createTraining=" + createTrainingId +
+                "createTrainingId=" + createTrainingId +
                 ", errors=" + errors +
                 '}';
     }
