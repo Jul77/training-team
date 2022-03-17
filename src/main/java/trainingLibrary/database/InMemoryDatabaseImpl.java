@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InMemoryDatabaseImpl implements Database {
-    private Long nextId = 1L;
+    private int nextId = 1;
     private List<TrainingEntity> trainings = new ArrayList<>();
 
     @Override

@@ -31,15 +31,15 @@ public class AddTrainingRequest {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hash(trainingChoice, trainer);
+    }
+
+    @Override
     public String toString() {
         return "AddTrainingRequest{" +
                 "trainingChoice='" + trainingChoice + '\'' +
                 ", trainer='" + trainer + '\'' +
                 '}';
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(trainingChoice, trainer);
     }
 }

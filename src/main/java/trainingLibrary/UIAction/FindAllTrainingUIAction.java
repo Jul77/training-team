@@ -11,7 +11,8 @@ public class FindAllTrainingUIAction implements UIAction{
 
     @Override
     public void execute() {
-       findAllTrainingService.findAll().forEach(System.out::println);
+        var response = findAllTrainingService.findAll();
+        System.out.println(response);
 
     }
 

@@ -1,12 +1,12 @@
 package trainingLibrary.validation;
 
-import trainingLibrary.domain.TrainingEntity;
+import trainingLibrary.dto.AddTrainingRequest;
 
 public class TrainingTrainerNullValidationRule implements ValidationRule {
 
     @Override
-    public void validate(TrainingEntity entity) {
-        if (entity.getTrainingChoice() == null) {
+    public void validate(AddTrainingRequest request) {
+        if (request.getTrainingChoice() == null) {
             throw new ValidationException(("Training trainer must not be null"));
 
         }
