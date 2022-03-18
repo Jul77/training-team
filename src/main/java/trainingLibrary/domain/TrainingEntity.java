@@ -8,11 +8,6 @@ public class TrainingEntity {
     private String trainingChoice;
     private String trainer;
 
-    public TrainingEntity(String trainingChoice, String trainer) {
-        this.trainer = trainer;
-        this.trainingChoice = trainingChoice;
-    }
-
     public Integer getId() {
         return id;
     }
