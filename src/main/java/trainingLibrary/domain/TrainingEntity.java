@@ -13,11 +13,6 @@ public class TrainingEntity {
         this.trainingChoice = trainingChoice;
     }
 
-    public TrainingEntity() {
-
-    }
-
-
     public Integer getId() {
         return id;
     }
