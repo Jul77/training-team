@@ -33,6 +33,7 @@ class ValidationServiceTest {
     void shouldMapErrors() {
         doThrow(new ValidationException("TEST_EXCEPTION")).when(validationRules).validate(any());
         var request = new AddTrainingRequest();
+        request.setTrainingChoice("TEST_TRAINING_CHOICE");
         var actual = validationService.validate(request);
 
         verify(validationRules).validate(addTrainingRequestArgumentCaptor.capture());
