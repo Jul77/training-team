@@ -1,50 +1,19 @@
 package trainingLibrary.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import trainingLibrary.validation.CoreError;
 
 import java.util.List;
 import java.util.Objects;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class AddTrainingResponse {
 
     private Integer createTrainingId;
     private List<CoreError> errors;
 
-    public Integer getCreateTrainingId(Integer id) {
-        return createTrainingId;
-    }
-
-    public void setCreateTrainingId(Integer createTrainingId) {
-        this.createTrainingId = createTrainingId;
-    }
-
-    public List<CoreError> getErrors() {
-        return errors;
-    }
-
-    public void setErrors(List<CoreError> errors) {
-        this.errors = errors;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AddTrainingResponse that = (AddTrainingResponse) o;
-        return Objects.equals(createTrainingId, that.createTrainingId) && Objects.equals(errors, that.errors);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(createTrainingId, errors);
-    }
-
-    @Override
-    public String toString() {
-        return "AddTrainingResponse{" +
-                "createTrainingId=" + createTrainingId +
-                ", errors=" + errors +
-                '}';
-    }
 }

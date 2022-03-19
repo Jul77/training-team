@@ -33,13 +33,13 @@ class AddTrainingServiceTest {
     @Test
     void shouldSuccessfulSaveTraining() {
         var request = request();
-        when(validationService.validation(request)).thenReturn(List.of());
+        when(validationService.validate(request)).thenReturn(List.of());
         when(repository.save(entity(null))).thenReturn(entity(10));
 
         var result = addTrainingService.add(request());
 
         verify(repository).save(any());
-        verify(validationService).validation(any());
+        verify(validationService).validate(any());
 
         var expected = new AddTrainingResponse();
         expected.setErrors(null);
@@ -51,11 +51,11 @@ class AddTrainingServiceTest {
     @Test
     void shouldSReturnErrors() {
         var request = request();
-        when(validationService.validation(request)).thenReturn(List.of(new CoreError("TEST ERROR")));
+        when(validationService.validate(request)).thenReturn(List.of(new CoreError("TEST ERROR")));
 
         var result = addTrainingService.add(request());
 
-        verify(validationService).validation(any());
+        verify(validationService).validate(any());
         verifyNoInteractions(repository);
 
         var expected = new AddTrainingResponse();

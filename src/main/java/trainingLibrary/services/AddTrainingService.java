@@ -17,7 +17,7 @@ public class AddTrainingService {
 
     public AddTrainingResponse add(AddTrainingRequest request) {
         System.out.println("Received request: " + request);
-        var validationResult = validationService.validation(request);
+        var validationResult = validationService.validate(request);
         if (!validationResult.isEmpty()) {
             System.out.println("Validation failed, errors: " + validationResult);
             var response = new AddTrainingResponse();

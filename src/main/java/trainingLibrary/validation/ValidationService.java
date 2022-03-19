@@ -16,7 +16,7 @@ public class ValidationService {
         this.validationRules = validationRules;
     }
 
-    public List<CoreError> validation(AddTrainingRequest request) {
+    public List<CoreError> validate(AddTrainingRequest request) {
         List<CoreError> errors = new ArrayList<>();
         if (request == null) {
             errors.add(new CoreError("Training must not be null"));
@@ -29,9 +29,9 @@ public class ValidationService {
                 .collect(Collectors.toList());
     }
 
-    private CoreError mapError(ValidationRule rule, AddTrainingRequest entity) {
+    private CoreError mapError(ValidationRule rule, AddTrainingRequest request) {
         try {
-            rule.validate(entity);
+            rule.validate(request);
         } catch (ValidationException e) {
             return new CoreError(e.getMessage());
         }
