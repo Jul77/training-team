@@ -3,8 +3,17 @@ package trainingLibrary.dto;
 import java.util.Objects;
 
 public class AddTrainingRequest {
+    private Long id;
     private String trainingChoice;
     private String trainer;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTrainingChoice() {
         return trainingChoice;
