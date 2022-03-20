@@ -36,6 +36,10 @@ class ValidationServiceTest {
         request.setTrainingChoice("TEST_TRAINING_CHOICE");
         var actual = validationService.validate(request);
 
+        var requestToValidate = new AddTrainingRequest();
+        requestToValidate.setTrainingChoice(" TEST_TRAINING_CHOICE");
+        verify(validationRules).validate(requestToValidate);
+
         verify(validationRules).validate(addTrainingRequestArgumentCaptor.capture());
         var capturedRequest = addTrainingRequestArgumentCaptor.getValue();
 
@@ -45,7 +49,7 @@ class ValidationServiceTest {
 
         assertNotNull(actual);
         assertFalse(actual.isEmpty());
-        assertEquals(actual.get(0), new CoreError("TEST_EXCEPTION"));
+        assertEquals(actual.get(0)), new CoreError("TEST_EXCEPTION");
 
     }
 }

@@ -9,11 +9,10 @@ import java.util.List;
 import java.util.Objects;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class AddTrainingResponse {
 
     private Integer createTrainingId;
     private List<CoreError> errors;
 
 }
+

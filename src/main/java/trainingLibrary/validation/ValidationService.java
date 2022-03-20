@@ -15,7 +15,7 @@ public class ValidationService {
         this.validationRules = validationRules;
     }
 
-    public List<CoreError> validation(AddTrainingRequest request) {
+    public List<CoreError> validate(AddTrainingRequest request) {
         List<CoreError> errors = new ArrayList<>();
         if (request == null) {
             errors.add(new CoreError("Training must not be null"));
@@ -23,12 +23,12 @@ public class ValidationService {
 
         }
         return validationRules.stream()
-                .map(rule -> mapError(rule, request))
+                .map(rule -> validate(rule, request))
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
     }
 
-    private CoreError mapError(ValidationRule rule, AddTrainingRequest request) {
+    public CoreError validate(ValidationRule rule,AddTrainingRequest request) {
         try {
             rule.validate(request);
         } catch (ValidationException e) {

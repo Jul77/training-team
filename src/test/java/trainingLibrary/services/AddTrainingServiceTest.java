@@ -32,9 +32,9 @@ class AddTrainingServiceTest {
 
     @Test
     void shouldSuccessfulSaveTraining() {
-        var request = request();
+        var request  = request();
         when(validationService.validate(request)).thenReturn(List.of());
-        when(repository.save(entity(null))).thenReturn(entity(10));
+        when(repository.save(entity(null))).thenReturn(entity(1001));
 
         var result = addTrainingService.add(request());
 
@@ -72,7 +72,7 @@ class AddTrainingServiceTest {
         return request;
     }
 
-    private TrainingEntity entity(Integer id) {
+    private AddTrainingRequest entity(Integer id) {
         var entity = new TrainingEntity();
         entity.setId(id);
         entity.setTrainer("TEST_TRAINER");

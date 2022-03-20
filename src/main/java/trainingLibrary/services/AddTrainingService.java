@@ -16,8 +16,7 @@ public class AddTrainingService {
 
     public AddTrainingResponse add(AddTrainingRequest request) {
         System.out.println("Received request: " + request);
-        var entity = convert(request);
-        var validationResult = validationService.validation(request);
+        var validationResult = validationService.validate(request);
         if (!validationResult.isEmpty()) {
             System.out.println("Validation failed, errors: " + validationResult);
             var response = new AddTrainingResponse();
@@ -25,10 +24,12 @@ public class AddTrainingService {
             return response;
 
         }
-        var createdRequest = repository.save(request);
-        System.out.println("Successfully saved " + createdRequest);
+        var entity = convert(request);
+        var createdEntity = repository.save(request);
+        System.out.println("Successfully saved " + createdEntity );
         var response = new AddTrainingResponse();
-        response.getCreateTrainingId(createdRequest.getId());
+        System.out.println("Successfully saved: " + entity);
+        response.getCreateTrainingId();
         System.out.println("Sending response " + response);
         return response;
 
