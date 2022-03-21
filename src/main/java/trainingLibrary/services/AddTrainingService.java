@@ -1,5 +1,6 @@
 package trainingLibrary.services;
 
+import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.repository.TrainingRepository;
 import trainingLibrary.validation.ValidationService;
 import trainingLibrary.dto.AddTrainingRequest;
@@ -25,7 +26,7 @@ public class AddTrainingService {
 
         }
         var entity = convert(request);
-        var createdEntity = repository.save(request);
+        var createdEntity = repository.save(entity);
         System.out.println("Successfully saved " + createdEntity );
         var response = new AddTrainingResponse();
         System.out.println("Successfully saved: " + entity);
@@ -35,11 +36,11 @@ public class AddTrainingService {
 
     }
 
-    private AddTrainingRequest convert(AddTrainingRequest request) {
-        AddTrainingRequest addTrainingRequest = new AddTrainingRequest();
-        addTrainingRequest.setTrainingChoice(request.getTrainingChoice());
-        addTrainingRequest.setTrainer(request.getTrainer());
-        return addTrainingRequest;
+    private TrainingEntity convert(AddTrainingRequest request) {
+        TrainingEntity entity = new TrainingEntity();
+        entity.setTrainingChoice(request.getTrainingChoice());
+        entity.setTrainer(request.getTrainer());
+        return entity;
 
     }
 }

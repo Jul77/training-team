@@ -49,7 +49,7 @@ class ValidationServiceTest {
 
         assertNotNull(actual);
         assertFalse(actual.isEmpty());
-        assertEquals(actual.get(0)), new CoreError("TEST_EXCEPTION");
+        assertEquals(actual.get(0), new CoreError("TEST_EXCEPTION"));
 
     }
 }

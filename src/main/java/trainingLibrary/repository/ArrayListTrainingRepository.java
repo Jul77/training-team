@@ -1,25 +1,26 @@
 package trainingLibrary.repository;
 
-import trainingLibrary.dto.AddTrainingRequest;
+import trainingLibrary.domain.TrainingEntity;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ArrayListTrainingRepository implements TrainingRepository {
 
-    private List<AddTrainingRequest> database = new ArrayList<>();
-    private long idSequence = 0;
+    private List<TrainingEntity> database = new ArrayList<>();
+    private int idSequence = 0;
 
     @Override
-    public AddTrainingRequest save(AddTrainingRequest request) {
-       request.setId(idSequence);
+    public TrainingEntity save(TrainingEntity entity) {
+        entity.setId(idSequence);
         idSequence++;
-        database.add(request);
-        return request;
+        database.add(entity);
+        return entity;
     }
 
     @Override
-    public List<AddTrainingRequest> findAll() {
+    public List<TrainingEntity> findAll() {
         return database;
     }
 }

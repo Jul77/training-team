@@ -14,13 +14,12 @@ import trainingLibrary.validation.ValidationService;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class AddTrainingServiceTest {
-
     @Mock
     private TrainingRepository repository;
 
@@ -32,9 +31,9 @@ class AddTrainingServiceTest {
 
     @Test
     void shouldSuccessfulSaveTraining() {
-        var request  = request();
+        var request = request();
         when(validationService.validate(request)).thenReturn(List.of());
-        when(repository.save(entity(null))).thenReturn(entity(1001));
+        when(repository.save(entity(null))).thenReturn(entity(10));
 
         var result = addTrainingService.add(request());
 
@@ -72,7 +71,7 @@ class AddTrainingServiceTest {
         return request;
     }
 
-    private AddTrainingRequest entity(Integer id) {
+    private TrainingEntity entity(Integer id) {
         var entity = new TrainingEntity();
         entity.setId(id);
         entity.setTrainer("TEST_TRAINER");
