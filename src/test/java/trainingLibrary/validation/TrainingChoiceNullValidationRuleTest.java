@@ -21,6 +21,7 @@ class TrainingChoiceNullValidationRuleTest {
         when(request.getTrainingChoice()).thenReturn(null);
         Assertions.assertThrows(ValidationException.class, () -> validationRule.validate(request));
 
+
     }
 
     @Test

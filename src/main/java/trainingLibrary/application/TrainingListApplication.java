@@ -1,4 +1,4 @@
-package trainingLibrary;
+package trainingLibrary.application;
 
 import trainingLibrary.UIAction.AddTrainingUIAction;
 import trainingLibrary.UIAction.FindAllTrainingUIAction;

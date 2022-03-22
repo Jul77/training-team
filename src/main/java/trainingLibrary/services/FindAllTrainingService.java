@@ -6,7 +6,6 @@ import trainingLibrary.dto.TrainingDTO;
 import trainingLibrary.repository.TrainingRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class FindAllTrainingService {
     private final TrainingRepository repository;
@@ -16,14 +15,13 @@ public class FindAllTrainingService {
     }
 
     public FindAllTrainingResponse findAll() {
-        var dtos = repository.findAll().stream()
+        var dto = repository.findAll().stream()
                 .map(this::convert)
                 .toList();
-        return new FindAllTrainingResponse(dtos);
+        return new FindAllTrainingResponse(dto);
     }
 
-    private TrainingDTO convert (TrainingEntity entity) {
-        return new TrainingDTO(entity.getId(), entity.getTrainingChoice(), entity.getTrainer());
-
+    private TrainingDTO convert(TrainingEntity entity){
+        return  new TrainingDTO(entity.getId(), entity.getTrainingChoice(), entity.getTrainer());
     }
 }

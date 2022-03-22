@@ -2,6 +2,7 @@ package trainingLibrary.repository;
 
 import trainingLibrary.domain.TrainingEntity;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,11 +12,11 @@ public class ArrayListTrainingRepository implements TrainingRepository {
     private int idSequence = 0;
 
     @Override
-    public TrainingEntity save(TrainingEntity trainingEntity) {
-        trainingEntity.setId(idSequence);
+    public TrainingEntity save(TrainingEntity entity) {
+        entity.setId(idSequence);
         idSequence++;
-        database.add(trainingEntity);
-        return trainingEntity;
+        database.add(entity);
+        return entity;
     }
 
     @Override

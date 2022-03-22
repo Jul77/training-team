@@ -1,6 +1,5 @@
 package trainingLibrary.validation;
 
-import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.dto.AddTrainingRequest;
 
 import java.util.ArrayList;
@@ -24,12 +23,12 @@ public class ValidationService {
 
         }
         return validationRules.stream()
-                .map(rule -> mapError(rule, request))
+                .map(rule -> validate(rule, request))
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
     }
 
-    private CoreError mapError(ValidationRule rule, AddTrainingRequest request) {
+    public CoreError validate(ValidationRule rule,AddTrainingRequest request) {
         try {
             rule.validate(request);
         } catch (ValidationException e) {

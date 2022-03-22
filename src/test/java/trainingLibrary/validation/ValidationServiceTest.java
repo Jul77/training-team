@@ -36,6 +36,10 @@ class ValidationServiceTest {
         request.setTrainingChoice("TEST_TRAINING_CHOICE");
         var actual = validationService.validate(request);
 
+        var requestToValidate = new AddTrainingRequest();
+        requestToValidate.setTrainingChoice(" TEST_TRAINING_CHOICE");
+        verify(validationRules).validate(requestToValidate);
+
         verify(validationRules).validate(addTrainingRequestArgumentCaptor.capture());
         var capturedRequest = addTrainingRequestArgumentCaptor.getValue();
 
