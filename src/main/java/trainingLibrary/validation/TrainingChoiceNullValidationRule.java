@@ -1,7 +1,9 @@
 package trainingLibrary.validation;
 
+import org.springframework.stereotype.Component;
 import trainingLibrary.dto.AddTrainingRequest;
 
+@Component
 public class TrainingChoiceNullValidationRule implements ValidationRule {
 
     @Override
