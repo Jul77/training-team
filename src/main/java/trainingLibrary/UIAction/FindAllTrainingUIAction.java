@@ -1,7 +1,11 @@
 package trainingLibrary.UIAction;
 
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 import trainingLibrary.services.FindAllTrainingService;
 
+@Order(2)
+@Component
 public class FindAllTrainingUIAction implements UIAction{
     private final FindAllTrainingService findAllTrainingService;
 

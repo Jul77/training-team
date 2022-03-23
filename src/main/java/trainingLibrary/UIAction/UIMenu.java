@@ -1,16 +1,17 @@
 package trainingLibrary.UIAction;
 
-import trainingLibrary.services.AddTrainingService;
-import trainingLibrary.services.FindAllTrainingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+@Component
 public class UIMenu {
 
     private final List<UIAction> uiActions;
 
+    @Autowired
     public UIMenu(List<UIAction> uiActions) {
         this.uiActions = uiActions;
     }

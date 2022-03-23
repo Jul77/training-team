@@ -1,12 +1,12 @@
 package trainingLibrary.services;
 
+import org.springframework.stereotype.Component;
 import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.dto.FindAllTrainingResponse;
 import trainingLibrary.dto.TrainingDTO;
 import trainingLibrary.repository.TrainingRepository;
 
-import java.util.List;
-
+@Component
 public class FindAllTrainingService {
     private final TrainingRepository repository;
 

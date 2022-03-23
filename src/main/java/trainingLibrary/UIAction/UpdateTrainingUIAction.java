@@ -1,12 +1,15 @@
 package trainingLibrary.UIAction;
 
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 import trainingLibrary.dto.UpdateTrainingRequest;
 import trainingLibrary.services.GetTrainingByIdService;
 import trainingLibrary.services.UpdateTrainingService;
 
 import java.util.Scanner;
 
-
+@Order(3)
+@Component
 public class UpdateTrainingUIAction implements UIAction {
     private final GetTrainingByIdService getTrainingByIdService;
     private final UpdateTrainingService updateTrainingService;
@@ -23,7 +26,9 @@ public class UpdateTrainingUIAction implements UIAction {
         var id = Integer.valueOf(scanner.nextLine());
         var foundTrainingResponse = getTrainingByIdService.getById(id);
         var training = foundTrainingResponse.getTrainingDTO();
+        System.out.println("Please enter training choice");
         var trainingChoice = scanner.nextLine();
+        System.out.println("Please enter trainer");
         var trainer = scanner.nextLine();
 
         var updateRequest = new UpdateTrainingRequest();

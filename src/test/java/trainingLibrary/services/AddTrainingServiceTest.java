@@ -10,7 +10,6 @@ import trainingLibrary.dto.AddTrainingRequest;
 import trainingLibrary.dto.AddTrainingResponse;
 import trainingLibrary.repository.TrainingRepository;
 import trainingLibrary.validation.CoreError;
-import trainingLibrary.validation.ValidationService;
 
 import java.util.List;
 
