@@ -9,13 +9,17 @@ import trainingLibrary.dto.AddTrainingResponse;
 
 @Service
 public class AddTrainingService {
-    private final TrainingRepository repository;
-    private final ValidationService validationService;
-@Autowired
-    public AddTrainingService(TrainingRepository repository, ValidationService validationService) {
-        this.repository = repository;
-        this.validationService = validationService;
-    }
+
+    @Autowired
+    private TrainingRepository repository;
+    @Autowired
+    private ValidationService validationService;
+
+//@Autowired
+//    public AddTrainingService(TrainingRepository repository, ValidationService validationService) {
+//        this.repository = repository;
+//        this.validationService = validationService;
+//    }
 
     public AddTrainingResponse add(AddTrainingRequest request) {
         System.out.println("Received request: " + request);
