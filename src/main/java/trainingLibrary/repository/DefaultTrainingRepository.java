@@ -21,7 +21,7 @@ public class DefaultTrainingRepository implements TrainingRepository {
 
     @Override
     public TrainingEntity save(TrainingEntity entity) {
-        var query = "INSERT INTO trainings(trainingChoice, trainer) VALUES (?, ?)";
+        var query = "INSERT INTO trainings(trainingchoice, trainer) VALUES (?, ?)";
         var keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
             var ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
