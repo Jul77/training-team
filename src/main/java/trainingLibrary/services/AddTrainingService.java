@@ -15,11 +15,11 @@ public class AddTrainingService {
     @Autowired
     private ValidationService validationService;
 
-//@Autowired
-//    public AddTrainingService(TrainingRepository repository, ValidationService validationService) {
-//        this.repository = repository;
-//        this.validationService = validationService;
-//    }
+    @Autowired
+    public AddTrainingService(TrainingRepository repository, ValidationService validationService) {
+        this.repository = repository;
+        this.validationService = validationService;
+    }
 
     public AddTrainingResponse add(AddTrainingRequest request) {
         System.out.println("Received request: " + request);
@@ -33,7 +33,7 @@ public class AddTrainingService {
         }
         var entity = convert(request);
         var createdEntity = repository.save(entity);
-        System.out.println("Successfully saved " + createdEntity );
+        System.out.println("Successfully saved " + createdEntity);
         var response = new AddTrainingResponse();
         System.out.println("Successfully saved: " + entity);
         response.getCreateTrainingId();

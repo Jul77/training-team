@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.Objects;
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class FindAllTrainingResponse {
 
     private List<TrainingDTO> trainings;

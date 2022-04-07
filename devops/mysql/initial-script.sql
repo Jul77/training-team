@@ -1,10 +1,16 @@
-CREATE SCHEMA IF NOT EXISTS traininglibrary DEFAULT CHARACTER SET utf8 ;
-USE traininglibrary;
+CREATE SCHEMA IF NOT EXISTS trainingLibrary DEFAULT CHARACTER SET utf8;
+USE trainingLibrary;
 
 CREATE TABLE IF NOT EXISTS trainings (
   id BIGINT NOT NULL AUTO_INCREMENT,
-  trainingchoice VARCHAR(100) NOT NULL,
+  trainingChoice VARCHAR(100) NOT NULL,
   trainer VARCHAR(255) NULL,
   PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS user (
+id BIGINT AUTO_INCREMENT PRIMARY KEY,
+name varchar(20) NOT NULL
 )
+
   ENGINE = InnoDB;
