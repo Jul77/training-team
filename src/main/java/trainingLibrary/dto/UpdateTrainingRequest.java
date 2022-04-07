@@ -1,7 +1,8 @@
 package trainingLibrary.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
+@AllArgsConstructor
 @Data
 public class UpdateTrainingRequest {
 
@@ -9,5 +10,7 @@ public class UpdateTrainingRequest {
     private String trainingChoice;
     private String trainer;
 
-    }
+    public UpdateTrainingRequest() {
 
+    }
+}
