@@ -8,9 +8,9 @@ import trainingLibrary.repository.HibernateRepository;
 
 @Component
 public class GetTrainingByIdService {
-    private final HibernateRepository <TrainingEntity> repository;
+    private final HibernateRepository repository;
 
-    public GetTrainingByIdService(HibernateRepository<TrainingEntity> repository) {
+    public GetTrainingByIdService(HibernateRepository repository) {
         this.repository = repository;
     }
 

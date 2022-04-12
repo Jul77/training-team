@@ -9,6 +9,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @Configuration
 @ComponentScan(basePackages = "trainingLibrary")
 @PropertySource("classpath:application.properties")
+
 public class AppConfig {
 
     @Bean

@@ -7,16 +7,17 @@ import trainingLibrary.repository.HibernateRepository;
 
 @Component
 public class UpdateTrainingService {
-    private final HibernateRepository<TrainingEntity> repository;
+    private final HibernateRepository repository;
 
-    public UpdateTrainingService(HibernateRepository <TrainingEntity> repository) {
+    public UpdateTrainingService(HibernateRepository repository) {
         this.repository = repository;
     }
 
     public void update(UpdateTrainingRequest request) {
-        repository.findById((request.getId()))
-        .map(entity -> updateField(entity, request))
-                .ifPresent(repository::update);
+        var optionalEntity = repository.findById(request.getId());
+        optionalEntity
+                .map(entity -> updateField(entity, request))
+                .ifPresent(repository::save);
     }
 
     private TrainingEntity updateField(TrainingEntity entity, UpdateTrainingRequest request) {
