@@ -3,13 +3,13 @@ package trainingLibrary.services;
 import org.springframework.stereotype.Component;
 import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.dto.UpdateTrainingRequest;
-import trainingLibrary.repository.TrainingRepository;
+import trainingLibrary.repository.HibernateRepository;
 
 @Component
 public class UpdateTrainingService {
-    private final TrainingRepository repository;
+    private final HibernateRepository repository;
 
-    public UpdateTrainingService(TrainingRepository repository) {
+    public UpdateTrainingService(HibernateRepository repository) {
         this.repository = repository;
     }
 

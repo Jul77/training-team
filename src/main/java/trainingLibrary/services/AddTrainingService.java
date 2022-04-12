@@ -3,22 +3,21 @@ package trainingLibrary.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import trainingLibrary.domain.TrainingEntity;
-import trainingLibrary.repository.TrainingRepository;
 import trainingLibrary.dto.AddTrainingRequest;
 import trainingLibrary.dto.AddTrainingResponse;
+import trainingLibrary.repository.HibernateRepository;
 
 @Service
 public class AddTrainingService {
 
     @Autowired
-    private TrainingRepository repository;
+    private HibernateRepository repository;
     @Autowired
     private ValidationService validationService;
 
-    @Autowired
-    public AddTrainingService(TrainingRepository repository, ValidationService validationService) {
-        this.repository = repository;
-        this.validationService = validationService;
+    public AddTrainingService(HibernateRepository repository, ValidationService validationService) {
+      this.repository = repository;
+      this.validationService = validationService;
     }
 
     public AddTrainingResponse add(AddTrainingRequest request) {

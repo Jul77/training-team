@@ -3,19 +3,18 @@ package trainingLibrary.repository;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.stereotype.Repository;
 import trainingLibrary.domain.TrainingEntity;
 
 import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
-public class DefaultTrainingRepository implements TrainingRepository {
+
+public class JDBCTemplateTrainingRepository implements HibernateRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
-    DefaultTrainingRepository(JdbcTemplate jdbcTemplate) {
+    JDBCTemplateTrainingRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 

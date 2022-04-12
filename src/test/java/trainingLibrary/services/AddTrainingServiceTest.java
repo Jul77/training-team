@@ -8,7 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.dto.AddTrainingRequest;
 import trainingLibrary.dto.AddTrainingResponse;
-import trainingLibrary.repository.TrainingRepository;
+import trainingLibrary.repository.HibernateRepository;
 import trainingLibrary.validation.CoreError;
 
 import java.util.List;
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class AddTrainingServiceTest {
     @Mock
-    private TrainingRepository repository;
+    private HibernateRepository repository;
 
     @Mock
     private ValidationService validationService;

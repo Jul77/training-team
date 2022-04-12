@@ -5,9 +5,9 @@ import trainingLibrary.domain.TrainingEntity;
 import java.util.List;
 import java.util.Optional;
 
-public interface TrainingRepository {
+public interface HibernateRepository {
 
-    TrainingEntity save (TrainingEntity entity);
+    TrainingEntity save(TrainingEntity entity);
 
     List<TrainingEntity> findAll();
 
