@@ -8,9 +8,9 @@ import trainingLibrary.repository.HibernateRepository;
 
 @Component
 public class FindAllTrainingService {
-    private final HibernateRepository repository;
+    private final HibernateRepository <TrainingEntity> repository;
 
-    public FindAllTrainingService(HibernateRepository repository) {
+    public FindAllTrainingService(HibernateRepository<TrainingEntity> repository) {
         this.repository = repository;
     }
 

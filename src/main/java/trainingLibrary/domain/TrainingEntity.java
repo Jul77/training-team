@@ -1,12 +1,16 @@
 package trainingLibrary.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@Entity(name = "training")
+@Table(name = "trainings")
 @Data
-@Entity(name = "trainingLibrary")
-@Table(name = "trainingLibrary")
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class TrainingEntity {
     @Id
@@ -19,4 +23,8 @@ public class TrainingEntity {
 
     @Column(name = "trainer")
     private String trainer;
+
+    @Column(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private Integer userId;
 }

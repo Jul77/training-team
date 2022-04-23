@@ -1,5 +1,7 @@
 package trainingLibrary.repository;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public class HibernateTrainingRepository implements HibernateRepository {
+public class HibernateTrainingRepository implements HibernateRepository<TrainingEntity> {
 
     private final SessionFactory sessionFactory;
 
@@ -26,7 +28,7 @@ public class HibernateTrainingRepository implements HibernateRepository {
 
     @Override
     public List<TrainingEntity> findAll() {
-        return sessionFactory.getCurrentSession().createQuery("SELECT t FROM trainingLibrary t").getResultList();
+        return sessionFactory.getCurrentSession().createQuery("SELECT t FROM training t").getResultList();
     }
 
 
@@ -34,5 +36,10 @@ public class HibernateTrainingRepository implements HibernateRepository {
     public Optional<TrainingEntity> findById(Integer id) {
        var entity = sessionFactory.getCurrentSession().get(TrainingEntity.class, id);
         return Optional.ofNullable(entity);
+    }
+
+    @Override
+    public void update(TrainingEntity entity) {
+
     }
 }

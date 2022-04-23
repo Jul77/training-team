@@ -19,13 +19,13 @@ import java.util.Properties;
 
 @Configuration
 @ComponentScan(basePackages = "trainingLibrary")
-@PropertySource("classpath:application.properties")
 @EnableTransactionManagement
+@PropertySource("classpath:application.properties")
 public class DatabaseConfig {
 
     @Bean
     public SessionFactory sessionFactory (DataSource dataSource,
-                                               @Value("${hibernate.hbm2ddl.auto}") String ddl,
+                                               @Value("create-drop") String ddl,
                                                @Value("${hibernate.dialect}") String dialect,
                                                @Value("${hibernate.show_sql}") String showSql,
                                                @Value("${hibernate.package.scan}") String packageScan
