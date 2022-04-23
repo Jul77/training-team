@@ -20,15 +20,18 @@ public class AddTrainingUIAction implements UIAction {
 
     @Override
     public void execute() {
-        Scanner scanner = new Scanner(System.in);
+        var scanner = new Scanner(System.in);
         System.out.println("Please enter training choice: ");
-        String trainingChoice = scanner.nextLine();
+        var trainingChoice = scanner.nextLine();
         System.out.println("Please enter training trainer: ");
-        String trainer = scanner.nextLine();
+        var trainer = scanner.nextLine();
+        System.out.println("Please enter user id: ");
+        var userId = Integer.parseInt(scanner.nextLine());
 
         var request = new AddTrainingRequest();
         request.setTrainingChoice(trainingChoice);
         request.setTrainer(trainer);
+        request.setUserId(userId);
 
         var response = addTrainingService.add(request);
         System.out.println("Received response: " + response);

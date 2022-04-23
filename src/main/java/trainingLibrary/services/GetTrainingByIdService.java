@@ -4,13 +4,13 @@ import org.springframework.stereotype.Component;
 import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.dto.GetByIdTrainingResponse;
 import trainingLibrary.dto.TrainingDTO;
-import trainingLibrary.repository.TrainingRepository;
+import trainingLibrary.repository.HibernateRepository;
 
 @Component
 public class GetTrainingByIdService {
-    private final TrainingRepository repository;
+    private final HibernateRepository <TrainingEntity> repository;
 
-    public GetTrainingByIdService(TrainingRepository repository) {
+    public GetTrainingByIdService(HibernateRepository<TrainingEntity> repository) {
         this.repository = repository;
     }
 

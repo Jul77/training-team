@@ -5,26 +5,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
-@Entity(name = "training")
-@Table(name = "trainings")
+
+@Entity(name = "user")
+@Table(name =  "users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class TrainingEntity {
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "trainingChoice")
-    private String trainingChoice;
+    @Column(name = "username", length = 100)
+    private String username;
 
-    @Column(name = "trainer")
-    private String trainer;
-
-    @Column(name = "user_id")
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private Integer userId;
+    private List <TrainingEntity> trainingEntities;
 }
+
+

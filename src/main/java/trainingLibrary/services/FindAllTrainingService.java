@@ -4,13 +4,13 @@ import org.springframework.stereotype.Component;
 import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.dto.FindAllTrainingResponse;
 import trainingLibrary.dto.TrainingDTO;
-import trainingLibrary.repository.TrainingRepository;
+import trainingLibrary.repository.HibernateRepository;
 
 @Component
 public class FindAllTrainingService {
-    private final TrainingRepository repository;
+    private final HibernateRepository <TrainingEntity> repository;
 
-    public FindAllTrainingService(TrainingRepository repository) {
+    public FindAllTrainingService(HibernateRepository<TrainingEntity> repository) {
         this.repository = repository;
     }
 

@@ -1,15 +1,15 @@
 package trainingLibrary.repository;
 
-import trainingLibrary.domain.TrainingEntity;
-
 import java.util.List;
 import java.util.Optional;
 
-public interface TrainingRepository {
+public interface HibernateRepository<T> {
 
-    TrainingEntity save (TrainingEntity entity);
+    T save(T entity);
 
-    List<TrainingEntity> findAll();
+    List<T> findAll();
 
-    Optional<TrainingEntity> findById(Integer id);
+    Optional<T> findById(Integer id);
+
+    void update(T entity);
 }
