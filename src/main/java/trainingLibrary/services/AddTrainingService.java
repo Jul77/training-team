@@ -30,8 +30,8 @@ public class AddTrainingService {
             response.setErrors(validationResult);
             return response;
         }
-//        var user = repository.findById(request.getUserId())
-//                .orElseThrow(() -> new IllegalArgumentException("User with id" + request.getUserId() + " is not found!"));
+        var user = repository.findById(request.getUserId())
+                .orElseThrow(() -> new IllegalArgumentException("User with id" + request.getUserId() + " is not found!"));
 
         var entity = convert(request);
         entity.setUserId(request.getUserId());
