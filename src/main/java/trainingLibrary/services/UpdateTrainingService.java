@@ -3,20 +3,21 @@ package trainingLibrary.services;
 import org.springframework.stereotype.Component;
 import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.dto.UpdateTrainingRequest;
-import trainingLibrary.repository.HibernateRepository;
+import trainingLibrary.repository.TrainingRepository;
 
 @Component
 public class UpdateTrainingService {
-    private final HibernateRepository<TrainingEntity> repository;
+    private final TrainingRepository repository;
 
-    public UpdateTrainingService(HibernateRepository <TrainingEntity> repository) {
+    public UpdateTrainingService(TrainingRepository repository) {
         this.repository = repository;
     }
 
     public void update(UpdateTrainingRequest request) {
-        repository.findById((request.getId()))
-        .map(entity -> updateField(entity, request))
-                .ifPresent(repository::update);
+        var optionalEntity = repository.findById(request.getId());
+        optionalEntity
+                .map(entity -> updateField(entity, request))
+                .ifPresent(repository::save);
     }
 
     private TrainingEntity updateField(TrainingEntity entity, UpdateTrainingRequest request) {
