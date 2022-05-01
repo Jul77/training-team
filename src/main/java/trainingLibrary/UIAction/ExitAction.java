@@ -3,7 +3,7 @@ package trainingLibrary.UIAction;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-@Order(4)
+@Order(5)
 @Component
 public class ExitAction implements UIAction {
 

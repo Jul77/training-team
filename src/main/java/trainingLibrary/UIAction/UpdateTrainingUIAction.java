@@ -8,7 +8,7 @@ import trainingLibrary.services.UpdateTrainingService;
 
 import java.util.Scanner;
 
-@Order(3)
+@Order(2)
 @Component
 public class UpdateTrainingUIAction implements UIAction {
     private final GetTrainingByIdService getTrainingByIdService;
