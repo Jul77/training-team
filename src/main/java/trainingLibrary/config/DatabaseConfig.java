@@ -1,12 +1,10 @@
 package trainingLibrary.config;
 
+import liquibase.integration.spring.SpringLiquibase;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -24,6 +22,7 @@ import java.util.Properties;
 public class DatabaseConfig {
 
     @Bean
+    @DependsOn("liquibase")
     public SessionFactory sessionFactory (DataSource dataSource,
                                                @Value("create-drop") String ddl,
                                                @Value("${hibernate.dialect}") String dialect,
@@ -68,6 +67,14 @@ public class DatabaseConfig {
         @Bean
         public JdbcTemplate jdbcTemplate (DataSource dataSource){
             return new JdbcTemplate(dataSource);
+        }
+
+        @Bean
+        public SpringLiquibase liquibase (DataSource dataSource) {
+            var liquibase = new SpringLiquibase();
+            liquibase.setDataSource(dataSource);
+            liquibase.setChangeLog("classpath:liquibase-changeLog.xml");
+            return liquibase;
         }
     }
 

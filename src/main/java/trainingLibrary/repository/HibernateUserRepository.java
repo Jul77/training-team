@@ -14,7 +14,7 @@ import java.util.Optional;
 @AllArgsConstructor
 
 public class HibernateUserRepository implements HibernateRepository<UserEntity> {
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     @Override
     public UserEntity save(UserEntity entity) {

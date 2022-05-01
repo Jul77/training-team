@@ -40,6 +40,7 @@ public class HibernateTrainingRepository implements HibernateRepository<Training
 
     @Override
     public void update(TrainingEntity entity) {
+        sessionFactory.getCurrentSession().update(entity);
 
     }
 }
