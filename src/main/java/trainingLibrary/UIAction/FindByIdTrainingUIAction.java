@@ -1,10 +1,12 @@
 package trainingLibrary.UIAction;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import trainingLibrary.services.GetTrainingByIdService;
 
 import java.util.Scanner;
 
+@Order(4)
 @Component
 public class FindByIdTrainingUIAction implements UIAction{
 

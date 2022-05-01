@@ -1,12 +1,14 @@
 package trainingLibrary.UIAction;
 
 import lombok.AllArgsConstructor;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import trainingLibrary.dto.AddUserRequest;
 import trainingLibrary.services.UserService;
 
 import java.util.Scanner;
 
+@Order(0)
 @Component
 @AllArgsConstructor
 
