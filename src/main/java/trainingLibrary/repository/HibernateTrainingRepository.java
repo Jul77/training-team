@@ -1,7 +1,5 @@
 package trainingLibrary.repository;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
