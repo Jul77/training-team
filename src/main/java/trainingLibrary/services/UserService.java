@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import trainingLibrary.domain.UserEntity;
 import trainingLibrary.dto.AddUserRequest;
 import trainingLibrary.dto.AddUserResponse;
-import trainingLibrary.repository.HibernateRepository;
+import trainingLibrary.repository.UserRepository;
 
 @Service
 @AllArgsConstructor
 
 public class UserService {
 
-    private HibernateRepository<UserEntity> repository;
+    private final UserRepository repository;
 
     public AddUserResponse addUser(AddUserRequest request) {
         var entity = convert(request);

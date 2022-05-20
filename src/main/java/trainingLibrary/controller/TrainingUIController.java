@@ -22,7 +22,7 @@ class TrainingUIController {
     @GetMapping("/findAllTrainings")
     public String findAllTraining(Model model) {
         var response = findAllTrainingService.findAll();
-        model.addAttribute("trainings", response.getTrainings());
+        model.addAttribute("trainings", response);
         return "findAllTrainings";
     }
 

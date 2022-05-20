@@ -1,18 +1,16 @@
 package trainingLibrary.services;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.dto.GetByIdTrainingResponse;
 import trainingLibrary.dto.TrainingDTO;
-import trainingLibrary.repository.HibernateRepository;
+import trainingLibrary.repository.TrainingRepository;
 
 @Component
+@AllArgsConstructor
 public class GetTrainingByIdService {
-    private final HibernateRepository <TrainingEntity> repository;
-
-    public GetTrainingByIdService(HibernateRepository<TrainingEntity> repository) {
-        this.repository = repository;
-    }
+    private final TrainingRepository repository;
 
     public GetByIdTrainingResponse getById (Integer id) {
        return repository.findById(id)

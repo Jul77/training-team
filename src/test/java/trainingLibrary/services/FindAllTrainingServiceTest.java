@@ -8,7 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.dto.FindAllTrainingResponse;
 import trainingLibrary.dto.TrainingDTO;
-import trainingLibrary.repository.HibernateRepository;
+import trainingLibrary.repository.TrainingRepository;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 class FindAllTrainingServiceTest {
 
     @Mock
-    private HibernateRepository repository;
+    private TrainingRepository repository;
 
     @InjectMocks
     private FindAllTrainingService findAllTrainingService;
