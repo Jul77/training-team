@@ -1,6 +1,5 @@
 package trainingLibrary.controller;
 
-import com.mysql.cj.x.protobuf.MysqlxCrud;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +8,8 @@ import trainingLibrary.services.AddTrainingService;
 import trainingLibrary.services.FindAllTrainingService;
 import trainingLibrary.services.GetTrainingByIdService;
 import trainingLibrary.services.UpdateTrainingService;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -20,7 +21,16 @@ public class TrainingController {
     private final UpdateTrainingService updateTrainingService;
 
     @GetMapping("/trainings")
-    public FindAllTrainingResponse findAll() {
+    public List<TrainingDTO> findAll(@RequestParam(required = false) String trainingChoice,
+                                     @RequestParam(required = false) String trainer,
+                                     @RequestParam(required = false) String userName
+    ) {
+        if (trainingChoice != null || trainer != null) {
+            return findAllTrainingService.findAllBy(trainingChoice, trainer);
+        }
+        if (userName != null){
+            return findAllTrainingService.findAllByUserName(userName);
+        }
         return findAllTrainingService.findAll();
     }
 
@@ -34,8 +44,9 @@ public class TrainingController {
         return addTrainingService.add(request);
     }
 
-    @PutMapping("/trainings")
-    public void update (@RequestBody UpdateTrainingRequest request) {
+    @PutMapping("/trainings/{id}")
+    public void update(@PathVariable("id") Integer id,
+                       @RequestBody UpdateTrainingRequest request) {
         updateTrainingService.update(request);
     }
 }

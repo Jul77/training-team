@@ -1,27 +1,24 @@
 package trainingLibrary.services;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.dto.UpdateTrainingRequest;
-import trainingLibrary.repository.HibernateRepository;
+import trainingLibrary.repository.TrainingRepository;
 
 @Component
+@AllArgsConstructor
 public class UpdateTrainingService {
-    private final HibernateRepository<TrainingEntity> repository;
-
-    public UpdateTrainingService(HibernateRepository <TrainingEntity> repository) {
-        this.repository = repository;
-    }
+    private final TrainingRepository repository;
 
     public void update(UpdateTrainingRequest request) {
         repository.findById((request.getId()))
         .map(entity -> updateField(entity, request))
-                .ifPresent(repository::update);
+                .ifPresent(repository::save);
     }
 
     private TrainingEntity updateField(TrainingEntity entity, UpdateTrainingRequest request) {
         var updatedEntity = new TrainingEntity();
-        updatedEntity.setId(entity.getId());
         updatedEntity.setTrainer(request.getTrainer());
         updatedEntity.setTrainingChoice(request.getTrainingChoice());
         return updatedEntity;
