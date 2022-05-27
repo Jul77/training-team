@@ -39,5 +39,13 @@
                                  referencedTableName="users"
                                  referencedColumnNames="id"/>
     </changeSet>
+    
+    <changeSet id="renameColumn" author="training.team">
+        <renameColumn tableName="trainings"
+                      columnDataType="VARCHAR(255)"
+                      newColumnName="training_choice"
+                      oldColumnName="trainingChoice"
+                      schemaName="trainingLibrary"/>
+    </changeSet>
 
 </databaseChangeLog>
