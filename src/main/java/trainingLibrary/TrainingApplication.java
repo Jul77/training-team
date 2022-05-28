@@ -1,9 +1,9 @@
-package trainingLibrary.application;
+package trainingLibrary;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "trainingLibrary")
 public class TrainingApplication {
 
     public static void main(String[] args) {
@@ -11,3 +11,4 @@ public class TrainingApplication {
 
     }
 }
+
