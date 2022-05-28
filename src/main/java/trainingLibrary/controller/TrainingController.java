@@ -23,13 +23,13 @@ public class TrainingController {
     @GetMapping("/trainings")
     public List<TrainingDTO> findAll(@RequestParam(required = false) String trainingChoice,
                                      @RequestParam(required = false) String trainer,
-                                     @RequestParam(required = false) String userName
+                                     @RequestParam(required = false) String username
     ) {
         if (trainingChoice != null || trainer != null) {
-            return findAllTrainingService.findAllBy(trainingChoice, trainer);
+            return findAllTrainingService.findAllByTrainingChoice(trainingChoice, trainer);
         }
-        if (userName != null){
-            return findAllTrainingService.findAllByUserName(userName);
+        if (username != null){
+            return findAllTrainingService.findAllByUserName(username);
         }
         return findAllTrainingService.findAll();
     }

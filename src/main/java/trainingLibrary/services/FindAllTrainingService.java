@@ -14,7 +14,7 @@ import java.util.List;
 public class FindAllTrainingService {
     private final TrainingRepository repository;
 
-    public List<TrainingDTO> findAllBy(String trainingChoice, String trainer) {
+    public List<TrainingDTO> findAllByTrainingChoice(String trainingChoice, String trainer) {
         var exampleEntity = new TrainingEntity();
         exampleEntity.setTrainingChoice(trainingChoice);
         exampleEntity.setTrainer(trainer);
