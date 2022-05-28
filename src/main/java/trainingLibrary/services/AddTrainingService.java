@@ -16,7 +16,7 @@ public class AddTrainingService {
     private final TrainingRepository repository;
 
     public AddTrainingResponse add(AddTrainingRequest request) {
-        log.info("Received request: {} " + request);
+        log.info("Received request: {} ", request);
         var entity = convert(request);
         entity.setUserId(request.getUserId());
         var createdEntity = repository.save(entity);
