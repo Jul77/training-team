@@ -2,13 +2,11 @@ package trainingLibrary.services;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.dto.AddTrainingRequest;
 import trainingLibrary.dto.AddTrainingResponse;
 import trainingLibrary.repository.TrainingRepository;
-import trainingLibrary.repository.UserRepository;
 
 @Slf4j
 @Service

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity(name = "training")
+@Entity
 @Table(name = "trainings")
 @Data
 @AllArgsConstructor
@@ -18,7 +18,7 @@ public class TrainingEntity {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "trainingChoice")
+    @Column(name = "training_сhoice")
     private String trainingChoice;
 
     @Column(name = "trainer")
