@@ -18,7 +18,7 @@ public class TrainingEntity {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "training_сhoice")
+    @Column(name = "training_choice")
     private String trainingChoice;
 
     @Column(name = "trainer")
