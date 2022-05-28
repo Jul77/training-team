@@ -7,13 +7,14 @@ import trainingLibrary.domain.TrainingEntity;
 import java.util.List;
 import java.util.Optional;
 
-public interface TrainingRepository extends JpaRepository<TrainingEntity,Integer> {
+public interface TrainingRepository extends JpaRepository<TrainingEntity,Integer>{
 
-    List<TrainingEntity> findAllBy(String trainingChoice);
+    List<TrainingEntity> findAllByTrainingChoice(String trainingChoice);
 
-    Optional<TrainingEntity> findFirstByTrainingChoice(String trainingChoice);
+        Optional<TrainingEntity> findFirstByTrainingChoice(String trainingChoice);
 
-    @Query(value = "SELECT tr FROM TrainingEntity tr LEFT JOIN UserEntity u on tr.userId = u.id" + "WHERE u.userName = :userName")
-    List<TrainingEntity> findAllByUserName(String username);
+        @Query(value = "SELECT tr FROM TrainingEntity tr LEFT JOIN UserEntity u on tr.userId = u.id WHERE u.username = :username")
+        List<TrainingEntity> findAllByUserName(String username);
 
 }
+

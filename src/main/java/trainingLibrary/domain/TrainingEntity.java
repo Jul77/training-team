@@ -25,6 +25,5 @@ public class TrainingEntity {
     private String trainer;
 
     @Column(name = "user_id")
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private Integer userId;
 }

@@ -22,9 +22,8 @@ public class AddTrainingService {
         var createdEntity = repository.save(entity);
         log.info("Successfully saved: {} ", createdEntity);
         var response = new AddTrainingResponse();
-        System.out.println("Successfully saved: " + entity);
         response.setCreateTrainingId(createdEntity.getId());
-        System.out.println("Sending response " + response);
+        log.debug("Sending response: {} ", response);
         return response;
 
     }
