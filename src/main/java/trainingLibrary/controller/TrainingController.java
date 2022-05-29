@@ -13,6 +13,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
+@RequestMapping("/trainings")
 @AllArgsConstructor
 public class TrainingController {
     private final FindAllTrainingService findAllTrainingService;
@@ -20,31 +21,26 @@ public class TrainingController {
     private final AddTrainingService addTrainingService;
     private final UpdateTrainingService updateTrainingService;
 
-    @GetMapping("/trainings")
+    @GetMapping
     public List<TrainingDTO> findAll(@RequestParam(required = false) String trainingChoice,
                                      @RequestParam(required = false) String trainer,
-                                     @RequestParam(required = false) String username
-    ) {
-        if (trainingChoice != null || trainer != null) {
-            return findAllTrainingService.findAllByTrainingChoice(trainingChoice, trainer);
-        }
-        if (username != null){
-            return findAllTrainingService.findAllByUserName(username);
-        }
-        return findAllTrainingService.findAll();
+                                     @RequestParam(required = false) Integer userId) {
+
+        var request = new SearchTrainingRequest(trainingChoice, trainer, userId);
+        return findAllTrainingService.findAllByTrainingChoice(request);
     }
 
-    @GetMapping("/trainings/{id}")
+    @GetMapping(value = "/{id}")
     public GetByIdTrainingResponse findById(@PathVariable("id") Integer id) {
         return getTrainingByIdService.getById(id);
     }
 
-    @PostMapping("/trainings")
+    @PostMapping
     public AddTrainingResponse add(@RequestBody AddTrainingRequest request) {
         return addTrainingService.add(request);
     }
 
-    @PutMapping("/trainings/{id}")
+    @PutMapping("/{id}")
     public void update(@PathVariable("id") Integer id,
                        @RequestBody UpdateTrainingRequest request) {
         updateTrainingService.update(request);

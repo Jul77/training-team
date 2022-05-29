@@ -2,6 +2,7 @@ package trainingLibrary.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import trainingLibrary.domain.TrainingEntity;
 import trainingLibrary.dto.UpdateTrainingRequest;
 import trainingLibrary.repository.TrainingRepository;
@@ -11,17 +12,18 @@ import trainingLibrary.repository.TrainingRepository;
 public class UpdateTrainingService {
     private final TrainingRepository repository;
 
+    @Transactional
     public void update(UpdateTrainingRequest request) {
-        repository.findById((request.getId()))
-        .map(entity -> updateField(entity, request))
+        repository.findById(request.getId())
+                .map(entity -> updateField(entity, request))
                 .ifPresent(repository::save);
     }
 
     private TrainingEntity updateField(TrainingEntity entity, UpdateTrainingRequest request) {
-        var updatedEntity = new TrainingEntity();
-        updatedEntity.setTrainer(request.getTrainer());
-        updatedEntity.setTrainingChoice(request.getTrainingChoice());
-        return updatedEntity;
+        entity.setTrainingChoice(request.getTrainingChoice());
+        entity.setTrainer(request.getTrainer());
+        entity.setUserId(entity.getUserId());
+        return entity;
     }
 }
 
