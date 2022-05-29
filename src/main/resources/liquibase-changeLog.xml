@@ -25,7 +25,7 @@
                 <constraints primaryKey="true"/>
             </column>
             <column name="trainer" type="VARCHAR(255)"/>
-            <column name="trainingChoice" type="VARCHAR(255)"/>
+            <column name="training_choice" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
 
@@ -39,13 +39,6 @@
                                  referencedTableName="users"
                                  referencedColumnNames="id"/>
     </changeSet>
-    
-    <changeSet id="renameColumn" author="training.team">
-        <renameColumn tableName="trainings"
-                      columnDataType="VARCHAR(255)"
-                      newColumnName="training_choice"
-                      oldColumnName="trainingChoice"
-                      schemaName="trainingLibrary"/>
-    </changeSet>
+
 
 </databaseChangeLog>

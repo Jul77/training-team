@@ -1,2 +1,2 @@
-CREATE SCHEMA IF NOT EXISTS trainingLibrary DEFAULT CHARACTER SET utf8 ;
-USE trainingLibrary;
+CREATE SCHEMA IF NOT EXISTS training_library DEFAULT CHARACTER SET utf8 ;
+USE training_library;
