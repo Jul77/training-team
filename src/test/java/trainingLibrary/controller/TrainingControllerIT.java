@@ -20,6 +20,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -38,11 +39,11 @@ class TrainingControllerIT {
     @ExpectedDatabase(value = "classpath:dbunit/create-trainings-expected.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
     @DatabaseTearDown(value = "classpath:dbunit/create-trainings-teardown.xml", type = DatabaseOperation.DELETE_ALL)
     void shouldCreateTrainings() throws Exception {
-        mockMvc.perform(get("/trainings")
+        mockMvc.perform(post("/trainings")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(createTrainingJSON()))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.createdTrainingId").value("1"));
+                .andExpect(jsonPath("$.createTrainingId").value("1"));
 
     }
 
@@ -55,16 +56,16 @@ class TrainingControllerIT {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(createTrainingJSON()))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.trainings.id").value("2"))
-                .andExpect(jsonPath("$.trainings.training_choice").value("test training choice"))
-                .andExpect(jsonPath("$.trainings.trainer").value("test trainer"));
+                .andExpect(jsonPath("$.trainingDTO.id").value("2"))
+                .andExpect(jsonPath("$.trainingDTO.trainingChoice").value("test training choice"))
+                .andExpect(jsonPath("$.trainingDTO.trainer").value("test trainer"));
     }
 
     private String createTrainingJSON() throws JSONException {
         return new JSONObject()
-                .put("training_choice", "test training choice")
+                .put("trainingChoice", "test training choice")
                 .put("trainer", "test trainer")
-                .put("user_id",3)
+                .put("userId","3")
                 .toString();
     }
 
