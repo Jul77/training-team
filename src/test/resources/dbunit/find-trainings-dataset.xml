@@ -1,0 +1,6 @@
+<dataset reset_sequences="trainings_sequence">
+    <trainings id="2"
+               training_choice="test training choice"
+               trainer="test trainer"
+    />
+</dataset>

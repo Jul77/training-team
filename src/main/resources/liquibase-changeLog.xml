@@ -39,6 +39,10 @@
                                  referencedTableName="users"
                                  referencedColumnNames="id"/>
     </changeSet>
-
+    <changeSet id="insert.default.users" author="kristina" context="test">
+        <insert tableName="users">
+            <column name="username" value="admin"/>
+        </insert>
+    </changeSet>
 
 </databaseChangeLog>

@@ -1,0 +1,6 @@
+<dataset reset_sequences="trainings_sequence">
+    <trainings/>
+    <users id="3"
+           username="Alex"
+    />
+</dataset>
