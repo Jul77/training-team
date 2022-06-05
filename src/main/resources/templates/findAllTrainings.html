@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Training list</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Trainer </th>
+        <th> Training Choice </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="training : ${trainings}">
+        <td><span th:text="${training.trainer}"> Trainer </span></td>
+        <td><span th:text="${training.trainingChoice}"> Training Choice </span></td>
+    </tr>
+    </tbody>
+</table>
+<a href="/">Back</a>
+</body>
+</html>
